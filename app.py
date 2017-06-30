@@ -4,8 +4,8 @@
 # -*- coding: utf-8 -*-
 
 import dash
-import dash_core_components as dcc
 import dash_html_components as html
+import dash_core_components as dcc
 
 app = dash.Dash()
 
@@ -20,6 +20,7 @@ app.layout = html.Div(children=[
         '''100 million americans did not vote in the 2016 presidential election.
         The election was decided by a collective 78,000 votes.
         This elections displays the opportunity for increased voter turnout, by voting district, in the United States.
+        
         '''
     ]),
 
@@ -37,7 +38,14 @@ app.layout = html.Div(children=[
                 'title': 'Top 5 Voting Opportunity Cities'
             }
         }
-    )
+    ),
+
+    html.Ul(
+        title='Key Terms',
+        children=[
+            html.Li('VEP = Voting Eligible Population'),
+            html.Li('VAP = Voting Age Population')
+        ])
 ])
 
 """

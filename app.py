@@ -9,6 +9,8 @@ import dash_core_components as dcc
 
 app = dash.Dash()
 
+
+
 app.layout = html.Div(children=[
     html.Title('''Voting Opportunity'''),
 
@@ -40,11 +42,29 @@ app.layout = html.Div(children=[
         }
     ),
 
+    dcc.Graph(
+        id='voting-opportunity-graph',
+        figure={
+            'data': [
+                {'x': [1, 2, 3], 'y': [4, 1, 2], 'type': 'bar', 'name': 'Los Angeles'},
+                {'x': [1, 2, 3], 'y': [2, 4, 5], 'type': 'bar', 'name': 'NYC'},
+                {'x': [1, 2, 3], 'y': [2, 2, 8], 'type': 'bar', 'name': 'Austin'},
+                {'x': [1, 2, 3], 'y': [3, 2, 1], 'type': 'bar', 'name': 'Chicago'},
+                {'x': [1, 2, 3], 'y': [4, 2, 4], 'type': 'bar', 'name': 'Detroit'},
+            ],
+            'layout': {
+                'title': 'Top 5 Voting Opportunity Cities'
+            }
+        }
+    ),
+
     html.Ul(
         title='Key Terms',
         children=[
+            'Key Terms',
             html.Li('VEP = Voting Eligible Population'),
-            html.Li('VAP = Voting Age Population')
+            html.Li('VAP = Voting Age Population'),
+            html.Li('Voting Opportunity = (VEP - (1-Turnout %) * VEP)/VEP')
         ])
 ])
 
